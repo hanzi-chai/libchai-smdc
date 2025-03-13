@@ -1,0 +1,16 @@
+[package]
+name = "libchai-smdc"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+chrono = "0.4.40"
+clap = "4.5.32"
+libchai = { version = "0.1.14", path = "../libchai" }
+
+[dev-dependencies]
+criterion = "0.3"
+
+[[bench]]
+name = "benchmark"
+harness = false
