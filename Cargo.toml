@@ -6,7 +6,7 @@ edition = "2024"
 [dependencies]
 chrono = "0.4.40"
 clap = "4.5.32"
-libchai = "0.2.1"
+libchai = "0.2.4"
 
 [profile.benchmark]
 inherits = "dev"
