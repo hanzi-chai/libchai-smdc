@@ -525,13 +525,13 @@ optimization:
   objective:
     characters_full:
       duplication: 1
-      pair_equivalence: 1
+      pair_equivalence: 0.01
     characters_short:
       duplication: 1
-      pair_equivalence: 1
+      pair_equivalence: 0.01
     words_full:
       duplication: 1
-      pair_equivalence: 1
+      pair_equivalence: 0.01
   metaheuristic:
     algorithm: SimulatedAnnealing
     parameters:
