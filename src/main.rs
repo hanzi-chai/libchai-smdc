@@ -5,7 +5,7 @@ use chai::operators::default::默认操作;
 use chai::optimizers::{优化方法, 优化问题};
 use chai::{命令, 命令行, 命令行参数, 错误};
 use clap::Parser;
-use libchai_smdc::四码定长编码器;
+use libchai_smdc::smdcencoder::四码定长编码器;
 use std::thread::spawn;
 
 fn main() -> Result<(), 错误> {
