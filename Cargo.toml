@@ -8,6 +8,16 @@ chrono = "0.4.40"
 clap = "4.5.32"
 libchai = "0.2.5"
 
+[dependencies.serde]
+version = "1.0.193"
+features = ["derive"]
+
+[dependencies.serde_with]
+version = "3.4.0"
+
+[dependencies.serde_yaml]
+version = "0.9.27"
+
 [profile.benchmark]
 inherits = "dev"
 opt-level = 3
