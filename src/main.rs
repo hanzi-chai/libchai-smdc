@@ -1,11 +1,12 @@
 use chai::config::SolverConfig;
 use chai::encoders::编码器;
-use chai::objectives::{default::默认目标函数, 目标函数};
+use chai::objectives::目标函数;
 use chai::operators::default::默认操作;
 use chai::optimizers::{优化方法, 优化问题};
 use chai::{命令, 命令行, 命令行参数, 错误};
 use clap::Parser;
 use libchai_smdc::smdcencoder::四码定长编码器;
+use libchai_smdc::smdcobjective::四码定长目标函数;
 use std::thread::spawn;
 
 fn main() -> Result<(), 错误> {
@@ -15,7 +16,7 @@ fn main() -> Result<(), 错误> {
     match 命令行.参数.command {
         命令::Encode => {
             let mut 编码器 = 四码定长编码器::新建(&数据)?;
-            let mut 目标函数 = 默认目标函数::新建(&数据)?;
+            let mut 目标函数 = 四码定长目标函数::新建(&数据)?;
             let mut 编码结果 = 编码器.编码(&数据.初始映射, &None).clone();
             let 码表 = 数据.生成码表(&编码结果);
             let (指标, _) = 目标函数.计算(&mut 编码结果, &数据.初始映射);
@@ -30,7 +31,7 @@ fn main() -> Result<(), 错误> {
             let mut 线程池 = vec![];
             for 线程编号 in 0..线程数 {
                 let 编码器 = 四码定长编码器::新建(&数据)?;
-                let 目标函数 = 默认目标函数::新建(&数据)?;
+                let 目标函数 = 四码定长目标函数::新建(&数据)?;
                 let 操作 = 默认操作::新建(&数据)?;
                 let mut 问题 = 优化问题::新建(数据.clone(), 编码器, 目标函数, 操作);
                 let 退火 = 退火.clone();
