@@ -1,15 +1,15 @@
 use chai::data::数据;
 use chai::encoders::编码器;
-use chai::objectives::default::默认目标函数;
 use chai::objectives::目标函数;
 use chai::operators::default::默认操作;
 use chai::{命令行, 错误};
 use criterion::{Criterion, criterion_group, criterion_main};
-use libchai_smdc::四码定长编码器;
+use libchai_smdc::smdcencoder::四码定长编码器;
+use libchai_smdc::smdcobjective::四码定长目标函数;
 
 fn 计时(数据: 数据, 名称: &str, 运行器: &mut Criterion) -> Result<(), 错误> {
     let mut 编码器 = 四码定长编码器::新建(&数据)?;
-    let mut 目标函数 = 默认目标函数::新建(&数据)?;
+    let mut 目标函数 = 四码定长目标函数::新建(&数据)?;
     let 操作 = 默认操作::新建(&数据)?;
     运行器.bench_function(名称, |b| {
         b.iter(|| {
